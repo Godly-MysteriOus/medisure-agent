@@ -11,7 +11,7 @@ exports.dbURI = {
     prodURI : config.prodEnvDBConnection
 }
 exports.connect = (app,PORT)=>{
-    mongoose.connect(exports.dbURI.localURI)
+    mongoose.connect(exports.dbURI.devURI)
     .then(()=>app.listen(PORT))
     .then(()=>logger.debug('Connection Successful'))
     .catch(err=>{
