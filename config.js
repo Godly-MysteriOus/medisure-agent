@@ -3,5 +3,6 @@ require('dotenv').config({path:'./credentials.env'});
 module.exports = {
     localEnvDBConnection : process.env.localDBConnectionURI,
     devEnvDBConnection : process.env.devDBConnectionURI,
-    prodEnvDBConnection : process.env.prodDBConnectionURI
+    prodEnvDBConnection : process.env.prodDBConnectionURI,
+    medisureUIApplicationURI : process.env.targetURI
 }

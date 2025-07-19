@@ -1,22 +1,17 @@
 const sharedModel = require('medisure-mongoose-model');
-const generalFxn = require('../utils/generalFunction');
 const path = require('path');
 const projectRoot = path.resolve(__dirname, '../');
 const filePathRelativeToRoot = path.relative(projectRoot, __filename);
 const logger = require('../utils/Logger/logger')(filePathRelativeToRoot,'TestCron');
+const axios = require('axios');
+const config = require('../config');
 let agent1val= false,agent2val = false;
 exports.createTestEntry = async()=>{
-    if(agent1val){
-        logger.debug('createTestEntry Agent is still running the previous job');
-        return;
-    }
-    agent1val = true;
-    logger.debug('Inside createTestEntry method !!! '+new Date())
-    const time = generalFxn.IndianStandardTime(0).toString().split(' ')[4];
-    const date = new Date().toISOString().split('T')[0];
-    const entry = await sharedModel.testCronDB.create({message:'Hi',createTime:time,createDate:date});
-    agent1val = false;
-    logger.debug('create Job Completed');
+    logger.info('Inside createTestEntry method');
+    return request = await axios.post(config.medisureUIApplicationURI+'agent/create-test-entry',{},{
+        headers:{'Content-Type':'application/json'},
+    }).then(result=>logger.debug(result.data.message));
+    
 }
 exports.deleteTestEntry = async()=>{
     if(agent2val){

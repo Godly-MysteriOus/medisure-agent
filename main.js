@@ -3,6 +3,9 @@ const app = express();
 const DBConnection = require('./utils/DB_Conn/connection');
 
 const jobNameSchedule = require('./utils/cronConfig/agentScheduleMap');
+app.use(express.json());
+
+
 setImmediate(async()=>{
     console.log('Inside setImmediate method !!!');  
     jobNameSchedule.getCronSchedule();
