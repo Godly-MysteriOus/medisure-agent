@@ -10,7 +10,7 @@ exports.createTestEntry = async()=>{
     logger.info('Inside createTestEntry method');
     return request = await axios.post(config.medisureUIApplicationURI+'agent/create-test-entry',{},{
         headers:{'Content-Type':'application/json'},
-    }).then(result=>logger.debug(result.data.message));
+    });
     
 }
 exports.deleteTestEntry = async()=>{
