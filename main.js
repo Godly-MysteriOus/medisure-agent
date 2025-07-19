@@ -8,9 +8,9 @@ setImmediate(async()=>{
     jobNameSchedule.getCronSchedule();
 })
 
-setInterval(async()=>{
-    console.log('Inside setInterval method !!!'+new Date().toISOString());
-    jobNameSchedule.getCronSchedule();
-},5*60*1000);
+// setInterval(async()=>{
+//     console.log('Inside setInterval method !!!'+new Date().toISOString());
+//     jobNameSchedule.getCronSchedule();
+// },5*60*1000);
 
 DBConnection.connect(app,process.env.PORT||2200);
