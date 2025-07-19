@@ -4,5 +4,6 @@ module.exports = {
     localEnvDBConnection : process.env.localDBConnectionURI,
     devEnvDBConnection : process.env.devDBConnectionURI,
     prodEnvDBConnection : process.env.prodDBConnectionURI,
-    medisureUIApplicationURI : process.env.targetURI
+    medisureUIApplicationURI : process.env.targetURI,
+    enableCron: process.env.enableCron
 }
